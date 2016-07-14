@@ -27,12 +27,11 @@
   <div id="cc-input"></div>
   <div id="cc-input-counter"></div>
   <button id="validator" class="btn btn-primary">Validate Credit Card</button>
-  <div class="hidden"> Thank you</div>
 
   <script>
     $(".digit-input").each(function () {
     var button = this;
-    $(this).on("click", function() {
+    $(button).on("click", function() {
         var possibleDigit = button.innerHTML;
         var creditCardNum = $('#cc-input')[0].innerHTML; //http://stackoverflow.com/questions/5140919/jquery-returns-a-list-using-id-selector
         creditCardNum += possibleDigit;
