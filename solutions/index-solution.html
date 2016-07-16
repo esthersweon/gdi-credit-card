@@ -30,30 +30,30 @@
   <script>
     // Have all button clicks result in a growing string of characters
     // in the DOM node with id of 'cc-input'
-    var possibleDigitBtns = document.getElementsByClassName('digit-input');
-    for (var i = 0; i < possibleDigitBtns.length; i++) {
-      possibleDigitBtns[i].addEventListener('click', function(e) {
-        var possibleDigit = e.target.innerHTML;
-        var creditCardNum = document.getElementById('cc-input').innerHTML;
-        creditCardNum += possibleDigit;
-        document.getElementById('cc-input').innerHTML = creditCardNum;
+    var digitBtns = document.getElementsByClassName('digit-input');
+    for (var i = 0; i < digitBtns.length; i++) {
+      digitBtns[i].addEventListener('click', function() {
+        var clickedDigit = this.innerHTML;
+        var ccNumber = document.getElementById('cc-input').innerHTML;
+        ccNumber += clickedDigit;
+        document.getElementById('cc-input').innerHTML = ccNumber;
 
         // Add a character count in the DOM node with id of 'cc-input-counter'
-        document.getElementById('cc-input-counter').innerHTML = 'Character Count: ' + creditCardNum.length;
+        document.getElementById('cc-input-counter').innerHTML = 'Character Count: ' + ccNumber.length;
       });
     }
 
     // Have a click on the button with id of 'validator'
     // alert whether the input credit card number is valid
-    document.getElementById('validator').addEventListener('click', function(e) {
-      var creditCardNum = document.getElementById('cc-input').innerHTML;
-      if (validateCreditCard(creditCardNum)) {
+    document.getElementById('validator').addEventListener('click', function() {
+      var ccNumber = document.getElementById('cc-input').innerHTML;
+      if (validateCreditCard(ccNumber)) {
         alert('Credit card number is valid.');
-        document.getElementById('cc-input').innerHTML = '';
       } else {
         alert('Credit card number is not valid.');
-        document.getElementById('cc-input').innerHTML = '';
       }
+      document.getElementById('cc-input').innerHTML = '';
+      document.getElementById('cc-input-counter').innerHTML = '';
     });
   </script>
   </body>
