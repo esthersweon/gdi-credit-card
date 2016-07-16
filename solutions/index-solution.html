@@ -28,18 +28,23 @@
   <button id="validator" class="btn btn-primary">Validate Credit Card</button>
 
   <script>
+    // Have all button clicks result in a growing string of characters
+    // in the DOM node with id of 'cc-input'
     var possibleDigitBtns = document.getElementsByClassName('digit-input');
     for (var i = 0; i < possibleDigitBtns.length; i++) {
       possibleDigitBtns[i].addEventListener('click', function(e) {
         var possibleDigit = e.target.innerHTML;
         var creditCardNum = document.getElementById('cc-input').innerHTML;
         creditCardNum += possibleDigit;
-
         document.getElementById('cc-input').innerHTML = creditCardNum;
+
+        // Add a character count in the DOM node with id of 'cc-input-counter'
         document.getElementById('cc-input-counter').innerHTML = 'Character Count: ' + creditCardNum.length;
       });
     }
 
+    // Have a click on the button with id of 'validator'
+    // alert whether the input credit card number is valid
     document.getElementById('validator').addEventListener('click', function(e) {
       var creditCardNum = document.getElementById('cc-input').innerHTML;
       if (validateCreditCard(creditCardNum)) {
