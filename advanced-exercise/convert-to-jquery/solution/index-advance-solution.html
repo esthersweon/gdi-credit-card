@@ -30,16 +30,15 @@
 
   <script>
     $(".digit-input").each(function () {
-    var button = this;
-    $(button).on("click", function() {
-        var clickedDigit = button.innerHTML;
+    $(this).on("click", function() {
+        var clickedDigit = this.innerHTML;
         var ccNumber = $('#cc-input')[0].innerHTML; //http://stackoverflow.com/questions/5140919/jquery-returns-a-list-using-id-selector
         ccNumber += clickedDigit;
         $("#cc-input")[0].innerHTML = ccNumber;
         $("#cc-input-counter")[0].innerHTML = 'Character Count: ' + ccNumber.length;
         });
     });
-    $("#validator").on("click", function(e){
+    $("#validator").on("click", function(){
       var ccNumber = $('#cc-input')[0].innerHTML;
       if (validateCreditCard(ccNumber)) {
         alert('Credit card number is valid.');
