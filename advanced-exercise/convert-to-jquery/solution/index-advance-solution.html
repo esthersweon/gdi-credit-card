@@ -29,15 +29,14 @@
   <button id="validator" class="btn btn-primary">Validate Credit Card</button>
 
   <script>
-    $(".digit-input").each(function () {
-      $(this).on("click", function() {
-        var clickedDigit = $(this).html();
-        var ccNumber = $('#cc-input').html();
-        ccNumber += clickedDigit;
-        $("#cc-input").html(ccNumber);
-        $("#cc-input-counter").html('Character Count: ' + ccNumber.length);
-      });
+    $(".digit-input").on("click", function() {
+      var clickedDigit = $(this).html();
+      var ccNumber = $('#cc-input').html();
+      ccNumber += clickedDigit;
+      $("#cc-input").html(ccNumber);
+      $("#cc-input-counter").html('Character Count: ' + ccNumber.length);
     });
+    
     $("#validator").on("click", function(){
       var ccNumber = $('#cc-input').html();
       if (validateCreditCard(ccNumber)) {
