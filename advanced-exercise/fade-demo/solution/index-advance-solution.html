@@ -36,18 +36,17 @@
   </div>
 
   <script>
-    $(".digit-input").each(function () {
-      $(this).on("click", function() {
-        var clickedDigit = $(this).html();
-        var ccNumber = $('#cc-input').html();
-        ccNumber += clickedDigit;
-        $("#cc-input").html(ccNumber);
-        $("#cc-input-counter").html('Character Count: ' + ccNumber.length);
-      });
+  $(document).ready(function(){
+    $(".digit-input").on("click", function() {
+        var $clickedDigit = $(this).html();
+        var $ccNumber = $('#cc-input').html();
+        $ccNumber += $clickedDigit;
+        $("#cc-input").html($ccNumber);
+        $("#cc-input-counter").html('Character Count: ' + $ccNumber.length);
     });
     $("#validator").on("click", function(){
-      var ccNumber = $('#cc-input').html();
-      if (validateCreditCard(ccNumber)) {
+      var $ccNumber = $('#cc-input').html();
+      if (validateCreditCard($ccNumber)) {
         alert('Credit card number is valid.');
         $('.to-process').fadeOut();
         $('#cc-input-counter').fadeOut();
@@ -57,6 +56,7 @@
       }
       $('#cc-input').html('');
     });
+  });
   </script>
   </body>
 </html>
