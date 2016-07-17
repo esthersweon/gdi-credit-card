@@ -31,21 +31,21 @@
   <script>
     $(".digit-input").each(function () {
       $(this).on("click", function() {
-        var clickedDigit = this.innerHTML;
-        var ccNumber = $('#cc-input')[0].innerHTML;
+        var clickedDigit = $(this).html();
+        var ccNumber = $('#cc-input').html();
         ccNumber += clickedDigit;
-        $("#cc-input")[0].innerHTML = ccNumber;
-        $("#cc-input-counter")[0].innerHTML = 'Character Count: ' + ccNumber.length;
+        $("#cc-input").html(ccNumber);
+        $("#cc-input-counter").html('Character Count: ' + ccNumber.length);
       });
     });
     $("#validator").on("click", function(){
-      var ccNumber = $('#cc-input')[0].innerHTML;
+      var ccNumber = $('#cc-input').html();
       if (validateCreditCard(ccNumber)) {
         alert('Credit card number is valid.');
         } else {
         alert('Credit card number is not valid.');
       }
-      $('#cc-input')[0].innerHTML = '';
+      $('#cc-input').html('');
     });
   </script>
   </body>
